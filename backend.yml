@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forever-app  
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: springboot-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: app
+        image: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry:latest
+        env:
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: forever-aurora-config
+              key: spring.datasource.url
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: forever-aurora-config
+              key: spring.datasource.username
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: forever-aurora-secret
+              key: password
+        ports:
+        - containerPort: 8080
