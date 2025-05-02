@@ -1,0 +1,7 @@
+image:
+  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry
+  tag: latest
+
+env:
+  SPRING_DATASOURCE_URL: "jdbc:mysql://staging-db.example.com:3306/yourdb"
+  SPRING_DATASOURCE_USERNAME: "staging-user"
