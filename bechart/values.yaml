@@ -1,5 +1,5 @@
 
-replicaCount: 5
+replicaCount: 30
 
 image:
   repository: "911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry"
