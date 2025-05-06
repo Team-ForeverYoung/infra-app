@@ -1,7 +1,7 @@
 env:
   SPRING_DATASOURCE_URL: "jdbc:mysql://forever-mysql-db.ctouy8o0uopm.ap-northeast-2.rds.amazonaws.com/forever_mysql_db"
   SPRING_DATASOURCE_USERNAME: "admin"
-replicaCount: 2
+replicaCount: 5
 
 image:
   repository: "911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry"
