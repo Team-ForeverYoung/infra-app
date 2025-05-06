@@ -16,5 +16,5 @@ spec:
         timezone: "Asia/Seoul"     # 시간대
         start: "23 * * * *"        # 시작 시각
         end: "59 * * * *"          # 종료 시각
-        desiredReplicas: "5"      # 해당 시간 동안 유지할 파드 수
+        desiredReplicas: "9"      # 해당 시간 동안 유지할 파드 수
 
