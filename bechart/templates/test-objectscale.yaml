@@ -26,7 +26,7 @@ metadata:
 spec:
   scaleTargetRef:
     name: {{ .Release.Name }}
-  minReplicaCount: 10
+  minReplicaCount: 3
   cooldownPeriod: 600
   triggers:
   - type: cron
