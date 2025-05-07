@@ -13,7 +13,7 @@ spec:
       labels:
         app: {{ .Values.appLabel }}
     spec:
-      terminationGracePeriodSeconds: 60000
+      terminationGracePeriodSeconds: 600
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
       - name: app
