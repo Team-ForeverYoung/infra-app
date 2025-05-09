@@ -33,5 +33,5 @@ spec:
     metadata:
       timezone: "Asia/Seoul"
       start: 24 * * * *
-      end: 59 * * * *
+      end: 46 * * * *
       desiredReplicas: "20"
