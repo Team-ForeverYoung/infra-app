@@ -2,6 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  namespace: {{.Values.namespace}}
   name: {{ include "mysqlchart.fullname" . }}
   labels:
     {{- include "mysqlchart.labels" . | nindent 4 }}

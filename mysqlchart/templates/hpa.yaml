@@ -2,6 +2,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
+  namespace: {{.Values.namespace}}
   name: {{ include "mysqlchart.fullname" . }}
   labels:
     {{- include "mysqlchart.labels" . | nindent 4 }}
