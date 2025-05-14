@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-mysql
+  namespace: {{.Values.namespace}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-mysql
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-mysql
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: mysql
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{.Values.forever.mysql.secret}}
+                  key: MYSQL_ROOT_PASSWORD
+          volumeMounts:
+            - name: {{.Values.forever.mysql.volumeName}}
+              mountPath: {{.Values.forever.mysql.mountPath}}
+      volumes:
+        - name: {{.Values.forever.mysql.volumeName}}
+          persistentVolumeClaim: # 미리 mysql-pvc.yaml 적용을 해놔야해뇽
+            claimName: {{ .Values.persistence.existingClaim }}
