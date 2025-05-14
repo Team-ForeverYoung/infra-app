@@ -3,7 +3,7 @@ image:
   tag: latest
 # 레지스트리를 환경별로 따로 나누어 놨어서 그냥 latest로 통일
 env:
-  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql.dev-mysql.svc.cluster.local:3306/forever_mysql_db"
+  SPRING_DATASOURCE_URL: "jdbc:mysql://dev-mysql-mysql.mysql.dev-mysql.svc.cluster.local:3306/forever_mysql_db"
   SPRING_DATASOURCE_USERNAME: "root"
 
 keda:
