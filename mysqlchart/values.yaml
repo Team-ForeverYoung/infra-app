@@ -1,5 +1,19 @@
 replicaCount: 1
 
+persistence: 
+  existingClaim: mysql-efs-claim # mysql-pvc.yaml에서 생성한 PVC를 참조
+  storageClass: efs-storage # efs를쓸거야
+  size: "10Gi"
+
+namespace: dev-mysql
+
+forever:
+  efs:
+    id: fs-0d33fd7789ea080f7
+  mysql:
+    mountPath: /var/lib/mysql
+    volumeName: mysql-data
+    secret: mysql-dev-secret
 image:
   repository: mysql
   pullPolicy: IfNotPresent
@@ -13,7 +27,7 @@ serviceAccount:
   create: false
   automount: true
   annotations: {}
-  name: ""
+  name: mysql
 
 podAnnotations: {}
 podLabels: {}
