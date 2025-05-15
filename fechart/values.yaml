@@ -15,8 +15,10 @@ app:
 
 container:
   name: react-app
-  image: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry:feeee
-  port: 80
+  image:
+    repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_dev_fe_registry
+    tag: latest
+
 
 configMap:
   name: nginx-config
