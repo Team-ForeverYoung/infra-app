@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.app.label }}
+      annotations: # 컨피그맵 변경을 감지하도록
+        configmap-checksum: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       containers:
         - name: {{ .Values.container.name }}

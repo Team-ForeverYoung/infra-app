@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.configMap.nginx.name }}
+  name: nginx-config
   namespace: default
 data:
   default.conf: |
