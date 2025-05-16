@@ -23,7 +23,6 @@ container:
 
 
 
-
 configMap:
   nginx:
     name: nginx-config
