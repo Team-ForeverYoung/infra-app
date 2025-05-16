@@ -5,5 +5,5 @@ metadata:
 data:
   config.json: |
     {
-      "BASE_URL": "http://backend-service.default.svc.cluster.local"
+      "BASE_URL": "http://https://k8s-default-reactapp-dc89345727-5a550320895082ce.elb.ap-northeast-2.amazonaws.com"
     }
