@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-config
+  name: {{.Values.configMap.vite.name}}
 data:
   default.conf: |
     server {

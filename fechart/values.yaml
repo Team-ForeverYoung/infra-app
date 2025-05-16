@@ -25,8 +25,10 @@ container:
 
 
 configMap:
-  name: nginx-config
-  
+  nginx:
+    name: nginx-config
+  vite:
+    name: frontend-config
 
 imagePullSecrets: []
 nameOverride: ""
