@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: frontend-config
+  name: {{ .Values.configMap.frontend.name }}
 data:
   config.json: |
     {
-      "BASE_URL": "http://k8s-default-reactapp-dc89345727-5a550320895082ce.elb.ap-northeast-2.amazonaws.com"
+      "BASE_URL": "{{ .Values.configMap.frontend.baseUrl }}"
     }
