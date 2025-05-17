@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
-  namespace: {{.Values.namespace}}
+  namespace: {{ .Values.namespace }}
 spec:
   selector:
     matchLabels:
@@ -16,23 +16,24 @@ spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
-      - name: app
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        env:
-        - name: SPRING_DATASOURCE_URL
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Values.configMap.name }}
-              key: spring.datasource.url
-        - name: SPRING_DATASOURCE_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Values.configMap.name }}
-              key: spring.datasource.username
-        - name: SPRING_DATASOURCE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.secret.name }}
-              key: password
-        ports:
-        - containerPort: {{ .Values.container.port }}
+        - name: {{ .Values.container.name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.container.port }}
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.configMap.name }}
+                  key: spring.datasource.url
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.configMap.name }}
+                  key: spring.datasource.username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: password
