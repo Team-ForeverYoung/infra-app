@@ -6,18 +6,18 @@ metadata:
 data:
   default.conf: |
     server {
-        listen 80;
-        server_name _;
-        root /usr/share/nginx/html;
+        listen {{ .Values.configMap.nginx.server.listen }};
+        server_name {{ .Values.configMap.nginx.server.server_name }};
+        root {{ .Values.configMap.nginx.server.root }};
 
         location / {
-            add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
-            try_files $uri $uri/ /index.html;
+            add_header Cache-Control "{{ .Values.configMap.nginx.locationRoot.cacheControl }}";
+            try_files {{ .Values.configMap.nginx.locationRoot.try_files }};
         }
 
         location /api/v1/ {
-            add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
-            proxy_pass http://springboot-service.default.svc.cluster.local:8080/api/v1/;
+            add_header Cache-Control "{{ .Values.configMap.nginx.locationApiV1.cacheControl }}";
+            proxy_pass {{ .Values.configMap.nginx.locationApiV1.proxy_pass }};
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
