@@ -21,6 +21,7 @@ spec:
           imagePullPolicy: {{ .Values.container.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.container.port }}
+
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
