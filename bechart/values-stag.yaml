@@ -7,3 +7,5 @@ env:
   SPRING_DATASOURCE_URL: "jdbc:mysql://forever-staging-mysql-db.ctouy8o0uopm.ap-northeast-2.rds.amazonaws.com/forever_mysql_db"
   SPRING_DATASOURCE_USERNAME: "admin"
 
+keda:
+  enabled: false
