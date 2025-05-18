@@ -13,16 +13,14 @@ deployment:
 app:
   label: react-app
 
-image:
-  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
-  tag: latest
-
 container:
   name: react-app
+  image:
+    repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
+    tag: latest
   port: 80
 
-# Nginx, Axios 요청주소에 대한 configmap
-configMap: 
+configMap:
   nginx:
     name: nginx-configmap
     server:
@@ -37,11 +35,12 @@ configMap:
       proxy_pass: "http://springboot-service.default.svc.cluster.local:8080/api/v1/"
   vite:
     name: frontend-config
-    baseUrl: # 보류
+    baseUrl: "k8s-default-reactapp-938ead73ba-eb793fe5d12240fe.elb.ap-northeast-2.amazonaws.com"
+    
+    
 
 
 
-  
 
 imagePullSecrets: []
 nameOverride: ""
