@@ -13,11 +13,12 @@ deployment:
 app:
   label: react-app
 
+image:
+  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
+  tag: latest
+
 container:
   name: react-app
-  image:
-    repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
-    tag: latest
   port: 80
 
 # Nginx, Axios 요청주소에 대한 configmap
