@@ -1,3 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
+  tag: latest
+  pullPolicy: IfNotPresent
+
 service:
   name: react-app-service
   port: 80
@@ -6,19 +13,17 @@ service:
   annotations:
     loadBalancerScheme: internet-facing
 
+container:
+  name: react-app
+  port: 80
+
+
 deployment:
   name: react-app-deployment
   replicas: 1
 
 app:
   label: react-app
-
-container:
-  name: react-app
-  image:
-    repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_stag_fe_registry
-    tag: latest
-  port: 80
 
 configMap:
   nginx:
