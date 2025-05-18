@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.app.label }}
-          image: {{ .Values.image.name | default .Values.container.image.repository }}:{{ .Values.image.tag | default .Values.container.image.tag }}
+          image: {{ .Values.image.name }}:{{ .Values.image.tag }}
           ports:
             - containerPort: {{ .Values.container.port }}
           volumeMounts:
