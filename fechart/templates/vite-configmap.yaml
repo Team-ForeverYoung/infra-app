@@ -5,5 +5,5 @@ metadata:
 data:
   config.json: |
     {
-      "BASE_URL": "{{ .Values.configMap.vite.baseUrl }}"
+      "BASE_URL": {{ .Values.configMap.vite.baseUrl | quote }}
     }
