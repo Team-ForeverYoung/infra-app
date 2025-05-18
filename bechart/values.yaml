@@ -9,10 +9,6 @@ namespace: "default"
 
 container:
   name: spring-app
-  image:
-    repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_dev_registry
-    tag: latest
-    pullPolicy: IfNotPresent
   port: 8080
 
 
