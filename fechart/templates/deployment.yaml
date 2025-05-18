@@ -13,7 +13,7 @@ spec:
         app: {{ .Values.app.label }}
     spec:
       containers:
-        - name: {{ .Values.container.name }}
+        - name: {{ .Values.app.label }}
           image: {{ .Values.image.name | default .Values.container.image.repository }}:{{ .Values.image.tag | default .Values.container.image.tag }}
           ports:
             - containerPort: {{ .Values.container.port }}
