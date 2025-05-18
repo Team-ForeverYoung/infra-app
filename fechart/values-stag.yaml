@@ -20,7 +20,8 @@ container:
     tag: latest
   port: 80
 
-configMap:
+# Nginx, Axios 요청주소에 대한 configmap
+configMap: 
   nginx:
     name: nginx-configmap
     server:

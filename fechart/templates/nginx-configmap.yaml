@@ -7,7 +7,7 @@ data:
   default.conf: |
     server {
         listen {{ .Values.configMap.nginx.server.listen }};
-        server_name {{ .Values.configMap.nginx.server.server_name }};
+        server_name {{ .Values.configMap.nginx.server.name }};
         root {{ .Values.configMap.nginx.server.root }};
 
         location / {
