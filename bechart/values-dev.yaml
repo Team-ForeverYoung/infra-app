@@ -1,5 +1,5 @@
 image:
-  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_dev_registry
+  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_dev_registry
   tag: latest
   pullPolicy: IfNotPresent
 

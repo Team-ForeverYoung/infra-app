@@ -1,5 +1,5 @@
 image:
-  repository: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever-staging-registry
+  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever-staging-registry
   tag: latest
   pullPolicy: IfNotPresent
 
