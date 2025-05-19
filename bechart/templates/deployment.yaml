@@ -22,16 +22,16 @@ spec:
           ports:
             - containerPort: {{ .Values.container.port }}
           env:
-            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Values.configMap.name }}
-                  key: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
-            - name: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Values.configMap.name }}
-                  key: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
+            # - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: {{ .Values.configMap.name }}
+            #       key: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+            # - name: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: {{ .Values.configMap.name }}
+            #       key: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
 
             - name: SPRING_DATASOURCE_URL
               valueFrom:
