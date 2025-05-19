@@ -22,16 +22,17 @@ spec:
           ports:
             - containerPort: {{ .Values.container.port }}
           env:
-            - name: spring.datasource.hikari.maximum-pool-size
+            - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
               valueFrom:
                 configMapKeyRef:
-                  name: {{.Values.configMap.name}}
-                  key: spring.datasource.hikari.maximum-pool-size 
-            - name: spring.datasource.hikari.minimum-idle
+                  name: {{ .Values.configMap.name }}
+                  key: spring.datasource.hikari.maximum-pool-size
+            - name: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
               valueFrom:
                 configMapKeyRef:
-                  name: {{.Values.configMap.name}}
+                  name: {{ .Values.configMap.name }}
                   key: spring.datasource.hikari.minimum-idle
+
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 configMapKeyRef:
