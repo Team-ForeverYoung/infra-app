@@ -3,8 +3,6 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-  
-
 env:
   SPRING_DATASOURCE_URL: jdbc:mysql://dev-mysql-mysql.dev-mysql.svc.cluster.local:3306/forever_mysql_db
   SPRING_DATASOURCE_USERNAME: root
