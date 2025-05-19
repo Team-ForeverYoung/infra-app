@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_prod_fe_registry
+    forcestring: true
+  - name: image.tag
+    value: origin-main-5-1071e9f
+    forcestring: true
