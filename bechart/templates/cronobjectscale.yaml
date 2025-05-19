@@ -34,5 +34,6 @@ spec:
       timezone: "Asia/Seoul"
       start: 24 * * * *
       end: 46 * * * *
-      desiredReplicas: "20"
+      desiredReplicas: "8"
+
 {{- end }}
