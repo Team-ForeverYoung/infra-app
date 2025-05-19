@@ -4,7 +4,7 @@ metadata:
   name: "spring-app-config"
   namespace: {{ .Values.namespace}}
 data:
-  spring.datasource.url: {{ .Values.env.SPRING_DATASOURCE_URL}}
-  spring.datasource.username: {{ .Values.env.SPRING_DATASOURCE_USERNAME}}
-  spring.datasource.hikari.maximum-pool-size: {{.Values.env.SPRING_HIKARI_MAX_POOL_SIZE}}
-  spring.datasource.hikari.minimum-idle: {{.Values.env.SPRING_HIKARI_MAX_IDLE}}
+  SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: {{ .Values.env.SPRING_HIKARI_MAX_POOL_SIZE }}
+  SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: {{ .Values.env.SPRING_HIKARI_MAX_IDLE }}
+  spring.datasource.url: {{ .Values.env.SPRING_DATASOURCE_URL }}
+  spring.datasource.username: {{ .Values.env.SPRING_DATASOURCE_USERNAME }}

@@ -26,12 +26,12 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Values.configMap.name }}
-                  key: spring.datasource.hikari.maximum-pool-size
+                  key: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
             - name: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Values.configMap.name }}
-                  key: spring.datasource.hikari.minimum-idle
+                  key: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
 
             - name: SPRING_DATASOURCE_URL
               valueFrom:
