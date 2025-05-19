@@ -6,8 +6,8 @@ image:
 env:
   SPRING_DATASOURCE_URL: "jdbc:mysql://forever-mysql-db.ctouy8o0uopm.ap-northeast-2.rds.amazonaws.com/forever_mysql_db"
   SPRING_DATASOURCE_USERNAME: "admin"
-  SPRING_HIKARI_MAX_POOL_SIZE: 5
-  SPRING_HIKARI_MAX_IDLE: 2
+  SPRING_HIKARI_MAX_POOL_SIZE: "5"
+  SPRING_HIKARI_MAX_IDLE: "2"
 
 keda:
   enabled: true

@@ -6,7 +6,7 @@ image:
 env:
   SPRING_DATASOURCE_URL: jdbc:mysql://dev-mysql-mysql.dev-mysql.svc.cluster.local:3306/forever_mysql_db
   SPRING_DATASOURCE_USERNAME: root
-  SPRING_HIKARI_MAX_POOL_SIZE: 5
-  SPRING_HIKARI_MAX_IDLE: 2
+  SPRING_HIKARI_MAX_POOL_SIZE: "5"
+  SPRING_HIKARI_MAX_IDLE: "2"
 keda:
   enabled: false
