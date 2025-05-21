@@ -7,7 +7,9 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.appLabel }}
-  # replicas: {{ .Values.replicaCount }}
+  {{- if not .Values.keda.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
   template:
     metadata:
       labels:
