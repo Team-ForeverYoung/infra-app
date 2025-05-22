@@ -32,7 +32,7 @@ spec:
   - type: cron
     metadata:
       timezone: "Asia/Seoul"
-      start: 10 * * * *
-      end:  13 * * * *
+      start: 20 * * * *
+      end:  25 * * * *
       desiredReplicas: "5"
 {{- end }}
