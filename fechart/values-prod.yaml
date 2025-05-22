@@ -1,7 +1,7 @@
 replicaCount: 1
 
 keda:
-  enabled: true
+  enabled: false
 
 image:
   name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_prod_fe_registry
