@@ -1,5 +1,8 @@
 replicaCount: 1
 
+keda:
+  enabled: true
+
 image:
   name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_prod_fe_registry
   tag: latest
@@ -24,6 +27,7 @@ deployment:
 
 app:
   label: react-app
+
 
 configMap:
   nginx:

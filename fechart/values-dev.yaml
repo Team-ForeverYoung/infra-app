@@ -6,6 +6,11 @@ service:
   annotations:
     loadBalancerScheme: internet-facing
 
+replicaCount: 1
+
+keda:
+  enabled: false
+
 deployment:
   name: react-app-deployment
   replicas: 1
