@@ -25,7 +25,7 @@ metadata:
   namespace: default
 spec:
   scaleTargetRef:
-    name: {{ .Release.Name }}
+    name: {{ .Values.deployment.name }}
   minReplicaCount: 2
   cooldownPeriod: 120 # 쿨다운 시간 줄여봄
   triggers:
