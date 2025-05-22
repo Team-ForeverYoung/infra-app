@@ -27,12 +27,12 @@ spec:
   scaleTargetRef:
     name: {{ .Values.deployment.name }}
   minReplicaCount: 2
-  cooldownPeriod: 120 # 쿨다운 시간 줄여봄
+  cooldownPeriod: 120
   triggers:
   - type: cron
     metadata:
       timezone: "Asia/Seoul"
-      start: 4 * * * *
-      end: 7 * * * *
-      desiredReplicas: "20"
+      start: 10 * * * *
+      end:  13 * * * *
+      desiredReplicas: "5"
 {{- end }}
