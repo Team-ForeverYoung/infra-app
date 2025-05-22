@@ -11,4 +11,4 @@ env:
   SPRING_HIKARI_MAX_IDLE: "2"
 
 keda:
-  enabled: true
+  enabled: false
