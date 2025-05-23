@@ -1,0 +1,135 @@
+replicaCount: 1
+
+keda:
+  enabled: false
+
+image:
+  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_prod_fe_registry
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  name: react-app-service
+  port: 80
+  targetPort: 80
+  type: LoadBalancer
+  annotations:
+    loadBalancerScheme: internet-facing
+
+container:
+  name: react-app
+  port: 80
+
+
+deployment:
+  name: react-app-deployment
+  replicas: 1
+
+app:
+  label: react-app
+
+
+configMap:
+  nginx:
+    name: nginx-configmap
+    server:
+      listen: 80
+      server_name: "_"
+      root: "/usr/share/nginx/html"
+    locationRoot:
+      cacheControl: "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+      try_files: "$uri $uri/ /index.html"
+    locationApiV1:
+      cacheControl: "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+      proxy_pass: "http://springboot-service.default.svc.cluster.local:8080/api/v1/"
+  vite:
+    name: frontend-config
+    baseUrl: "k8s-default-reactapp-938ead73ba-eb793fe5d12240fe.elb.ap-northeast-2.amazonaws.com"
+    
+    
+
+
+
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  automount: true
+  annotations: {}
+  name: "default" #default사용하다 추후 변경 예정
+
+podAnnotations: {}
+podLabels: {}
+appLabel: "react-app"
+
+podSecurityContext: {}
+
+securityContext: {}
+
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
