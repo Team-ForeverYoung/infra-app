@@ -1,0 +1,14 @@
+replicaCount: 2
+image:
+  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry
+  tag: latest
+  pullPolicy: IfNotPresent
+
+env:
+  SPRING_DATASOURCE_URL: "foreveryoungdb-us-east-1-cluster-1.cluster-ro-c6lsgsgq006k.us-east-1.rds.amazonaws.com"
+  SPRING_DATASOURCE_USERNAME: "admin"
+  SPRING_HIKARI_MAX_POOL_SIZE: "5"
+  SPRING_HIKARI_MAX_IDLE: "2"
+
+keda:
+  enabled: false
