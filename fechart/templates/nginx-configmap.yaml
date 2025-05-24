@@ -17,6 +17,18 @@ data:
 
         location /api/v1/ {
             add_header Cache-Control "{{ .Values.configMap.nginx.locationApiV1.cacheControl }}";
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE, PATCH' always;
+            add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+
+            # Preflight(OPTIONS) 요청 처리
+            if ($request_method = 'OPTIONS') {
+                add_header 'Access-Control-Max-Age' 1728000;
+                add_header 'Content-Type' 'text/plain charset=UTF-8';
+                add_header 'Content-Length' 0;
+                return 204;
+            }
+
             proxy_pass {{ .Values.configMap.nginx.locationApiV1.proxy_pass }};
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
