@@ -1,4 +1,4 @@
-replicaCount: 70
+replicaCount: 1
 
 keda:
   enabled: false
