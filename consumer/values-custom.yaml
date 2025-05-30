@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever-alarm-be
-  tag: latest
+  tag: origin-main-7-6486ed8
   pullPolicy: IfNotPresent
 
 env:
