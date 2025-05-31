@@ -4,5 +4,5 @@ helm:
     value: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry
     forcestring: true
   - name: image.tag
-    value: origin-main-21-cea847b
+    value: origin-main-23-bcb9114
     forcestring: true
