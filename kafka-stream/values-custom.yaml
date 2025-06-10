@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever-kafka-stream
-  tag: origin-main-4-508f3af
+  tag: origin-main-5-e3961dd
   pullPolicy: IfNotPresent
 
 # env:
