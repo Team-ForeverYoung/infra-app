@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.namespace}}
 spec:
   {{- if not .Values.keda.enabled }}
   replicas: {{ .Values.replicaCount }}

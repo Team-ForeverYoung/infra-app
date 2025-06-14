@@ -1,3 +1,5 @@
+namespace: default
+
 service:
   name: react-app-service
   port: 80

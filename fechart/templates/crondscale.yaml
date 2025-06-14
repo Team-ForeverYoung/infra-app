@@ -22,7 +22,7 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: cron-scaledobject
-  namespace: default
+  namespace: {{ .Values.namespace}}
 spec:
   scaleTargetRef:
     name: {{ .Values.deployment.name }}

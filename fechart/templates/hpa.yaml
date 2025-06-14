@@ -3,6 +3,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ include "fechart.fullname" . }}
+  namespace: {{ .Values.namespace}}
   labels:
     {{- include "fechart.labels" . | nindent 4 }}
 spec:

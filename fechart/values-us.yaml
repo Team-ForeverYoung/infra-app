@@ -1,3 +1,5 @@
+namespace: default
+
 replicaCount: 1
 
 keda:
@@ -9,7 +11,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  name: react-app-service
+  name: react-us-app-service
   port: 80
   targetPort: 80
   type: LoadBalancer
@@ -17,21 +19,21 @@ service:
     loadBalancerScheme: internet-facing
 
 container:
-  name: react-app
+  name: react-us-app
   port: 80
 
 
 deployment:
-  name: react-app-deployment
+  name: react-us-app-deployment
   replicas: 1
 
 app:
-  label: react-app
+  label: react-us-app
 
 
 configMap:
   nginx:
-    name: nginx-configmap
+    name: nginx-us-configmap
     server:
       listen: 80
       server_name: "_"
@@ -41,10 +43,10 @@ configMap:
       try_files: "$uri $uri/ /index.html"
     locationApiV1:
       cacheControl: "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-      proxy_pass: "http://springboot-service.default.svc.cluster.local:8080/api/v1/"
+      proxy_pass: "http://springboot-us-service.default.svc.cluster.local:8080/api/v1/"
   vite:
-    name: frontend-config
-    baseUrl: "afd1a7cc31a45474f8d1432eddcf757b-616064655.us-east-1.elb.amazonaws.com"
+    name: frontend-us-config
+    baseUrl: "/api/v1"
     
     
 
@@ -63,7 +65,7 @@ serviceAccount:
 
 podAnnotations: {}
 podLabels: {}
-appLabel: "react-app"
+appLabel: "react-us-app"
 
 podSecurityContext: {}
 
@@ -132,4 +134,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
