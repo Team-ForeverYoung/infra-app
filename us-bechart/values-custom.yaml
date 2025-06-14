@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
-  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry
-  tag: latest
+  name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_us_registry
+  tag: origin-main-5-e96201d
   pullPolicy: IfNotPresent
 
 env:
