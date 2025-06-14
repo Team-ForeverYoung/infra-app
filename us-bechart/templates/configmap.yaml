@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "spring-app-us-config"
+  namespace: {{ .Values.namespace}}
+data:
+  # SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: {{ .Values.env.SPRING_HIKARI_MAX_POOL_SIZE }}
+  # SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: {{ .Values.env.SPRING_HIKARI_MAX_IDLE }}
+  spring.datasource.url: {{ .Values.env.SPRING_DATASOURCE_URL }}
+  spring.datasource.username: {{ .Values.env.SPRING_DATASOURCE_USERNAME }}
