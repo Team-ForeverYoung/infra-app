@@ -43,7 +43,7 @@ configMap:
       try_files: "$uri $uri/ /index.html"
     locationApiV1:
       cacheControl: "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-      proxy_pass: "http://springboot-us-service.app-us.svc.cluster.local:8080/api/v1/"
+      proxy_pass: "http://forever-us-prod-be-us-bechart.app-us.svc.cluster.local:8080/api/v1/"
   vite:
     name: frontend-us-config
     baseUrl: "/api/v1"
