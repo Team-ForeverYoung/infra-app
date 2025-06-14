@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.appLabel }}
+  {{- if not .Values.keda.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appLabel }}
+    spec:
+      terminationGracePeriodSeconds: 60
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: {{ .Values.container.name }}
+          image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.container.port }}
+          env:
+            # - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: {{ .Values.configMap.name }}
+            #       key: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
+            # - name: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: {{ .Values.configMap.name }}
+            #       key: SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE
+
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.configMap.name }}
+                  key: spring.datasource.url
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.configMap.name }}
+                  key: spring.datasource.username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.name }}
+                  key: password
