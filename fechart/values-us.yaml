@@ -1,4 +1,4 @@
-namespace: default
+namespace: app-us
 
 replicaCount: 1
 
