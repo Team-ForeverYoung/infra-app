@@ -23,6 +23,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.container.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 6 }}
           env:
             # - name: SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE
             #   valueFrom:

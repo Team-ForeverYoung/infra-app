@@ -12,3 +12,12 @@ env:
 
 keda:
   enabled: false
+
+resources:
+  requests:
+    cpu: "1500m"     
+    memory: "1024Mi" 
+  limits:
+    cpu: "2000m"     
+    memory: "2048Mi" 
+
