@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
-  namespace: {{ .Values.namespace}}
+  namespace: {{ .Values.namespace }}
 spec:
   {{- if not .Values.keda.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -27,6 +27,10 @@ spec:
             - name: frontend-config-volume  
               mountPath: /usr/share/nginx/html/config.json
               subPath: config.json
+          {{- if .Values.resources }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- end }}
       volumes:
         - name: nginx-config-volume
           configMap:
@@ -36,4 +40,4 @@ spec:
                 path: default.conf
         - name: frontend-config-volume  
           configMap:
-            name: {{.Values.configMap.vite.name}}  
+            name: {{ .Values.configMap.vite.name }}
