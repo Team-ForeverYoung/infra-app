@@ -21,4 +21,5 @@ spec:
         - name: {{ .Values.container.name }}
           image: {{ .Values.image.name }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
- 
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

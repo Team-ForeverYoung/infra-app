@@ -9,3 +9,11 @@ image:
 #   SPRING_DATA_MONGODB_URI : "mongodb+srv://abuga1008:504VqYlKe3KsPdbo@forever-prod-cluster.w8icrv3.mongodb.net/foreverdb?retryWrites=true&w=majority&appName=forever-prod-cluster"
 keda:
   enabled: false
+
+resources:
+  requests:
+    cpu: "1500m"     
+    memory: "1024Mi" 
+  limits:
+    cpu: "2000m"     
+    memory: "2048Mi" 
