@@ -11,7 +11,11 @@ env:
   SPRING_HIKARI_MAX_IDLE: "2"
 
 keda:
-  enabled: false
+  enabled: true
+  redis:
+    address: redis://clustercfg.forever-event.td9wre.apn2.cache.amazonaws.com:6379
+    listName: queue:outbox:point
+    listLength: "10"
 
 resources:
   requests:
