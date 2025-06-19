@@ -1,0 +1,19 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: kafka-consumer-scaler
+  namespace: {{ .Values.namespace }}
+spec:
+  scaleTargetRef:
+    name: {{ .Release.Name }}
+  pollingInterval: 15
+  cooldownPeriod: 30
+  minReplicaCount: 1
+  maxReplicaCount: 20
+  triggers:
+    - type: kafka
+      metadata:
+        bootstrapServers: {{ .Values.keda.kafka.bootstrapServers | quote }}
+        topic: {{ .Values.keda.kafka.topic | quote }}
+        consumerGroup: {{ .Values.keda.kafka.consumerGroup | quote }}
+        lagThreshold: {{ .Values.keda.kafka.lagThreshold | quote }}
