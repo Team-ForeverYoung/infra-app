@@ -9,7 +9,7 @@ spec:
   pollingInterval: 15
   cooldownPeriod: 30
   minReplicaCount: 10
-  maxReplicaCount: 50
+  maxReplicaCount: 20
   triggers:
     - type: kafka
       metadata:
