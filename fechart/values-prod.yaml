@@ -1,6 +1,6 @@
 namespace: default
 
-replicaCount: 1
+replicaCount: 10
 
 keda:
   enabled: false
