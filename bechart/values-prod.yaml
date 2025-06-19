@@ -13,7 +13,7 @@ env:
 keda:
   enabled: true
   redis:
-    address: redis://clustercfg.forever-event.td9wre.apn2.cache.amazonaws.com:6379
+    address: clustercfg.forever-event.td9wre.apn2.cache.amazonaws.com:6379
     listName: queue:outbox:point
     listLength: "10"
 
