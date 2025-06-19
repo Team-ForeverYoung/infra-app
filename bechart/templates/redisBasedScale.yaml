@@ -8,8 +8,8 @@ spec:
     name: {{ .Release.Name }}
   pollingInterval: 10
   cooldownPeriod: 30
-  minReplicaCount: 1
-  maxReplicaCount: 20
+  minReplicaCount: 16
+  maxReplicaCount: 25
   triggers:
     - type: redis
       metadata:

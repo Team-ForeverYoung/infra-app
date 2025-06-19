@@ -8,8 +8,8 @@ spec:
     name: {{ .Release.Name }}
   pollingInterval: 15
   cooldownPeriod: 30
-  minReplicaCount: 1
-  maxReplicaCount: 20
+  minReplicaCount: 16
+  maxReplicaCount: 30
   triggers:
     - type: kafka
       metadata:
