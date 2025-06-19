@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 5
 image:
   name: 911167924085.dkr.ecr.ap-northeast-2.amazonaws.com/forever_registry
   tag: latest
